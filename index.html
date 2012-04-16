@@ -120,6 +120,27 @@
       #location .country-name {
         display: none;
       }
+      #speakers {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        margin-left: -30%;
+        z-index: 6;
+        width: 60%;
+        text-align: center;
+        list-style: none;
+        padding: 0;
+      }
+      #speakers li {
+        width: 21%;
+        padding: 0 2%;
+        float: left;
+        vertical-align: top;
+        text-align: center;
+      }
+      #speakers li img {
+        max-width: 100%;
+      }
       #scene {
         width: 150%;
         height: 150%;
@@ -253,6 +274,28 @@
       </div>
       <h2 id="date"><time datetime="2011-06-11">Thursday, June <span class="caps">14 2012</span></time></h2>
     </div>
+    <ul id="speakers">
+        <li>
+          <img src="http://cdn.yayquery.com/txjs/images/speakers/photo_speaker_eich.jpg" alt="Brendan Eich" />
+          <span class="speaker-name">Brendan Eich</span>
+          <span class="speaker-description">CTO Mozilla, Creator of JS</span>
+        </li>
+        <li>
+          <img src="http://cdn.yayquery.com/txjs/images/speakers/photo_speaker_russell.jpg" alt="Alex Russell" />
+          <span class="speaker-name">Alex Russell</span>
+          <span class="speaker-description">Google, Dojo</span>
+        </li>
+        <li>
+          <img src="http://cdn.yayquery.com/txjs/images/speakers/photo_speaker_crock.jpg" alt="Douglas Crockford" />
+          <span class="speaker-name">Douglas Crockford</span>
+          <span class="speaker-description">Yahoo, <em>The Good Parts</em></span>
+        </li>
+        <li>
+          <img src="http://cdn.yayquery.com/txjs/images/speakers/photo_speaker_irish.jpg" alt="Paul Irish" />
+          <span class="speaker-name">Paul Irish</span>
+          <span class="speaker-description">Google, jQuery, Modernizr</span>
+        </li>
+      </ul>
     <div id="scene-outer"></div>
     <div id="scene">
       <div id="fg">

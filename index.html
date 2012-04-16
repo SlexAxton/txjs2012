@@ -205,10 +205,10 @@
         scene = $('#scene'),
         dbnc,
         onWinResize = function () {
-          docSize = doc.outerWidth();
+          docSize = doc.width();
           halfDoc = docSize/2;
           $( layers ).each(function ( i, layer ) {
-            layer.el.width( docSize + (max*2) );
+            layer.el.width( ("MozAppearance" in document.documentElement.style) ? docSize-320 : docSize + (2*max) );
             layer.el.css('left', '-' + max + 'px');
           });
         },
@@ -221,9 +221,12 @@
         onWinResize();
 
         // Listen for the mouseMove
-        $('#cover').mousemove($.throttle(16, function(e){
+        $('#cover').mousemove($.throttle(40, function(e){
 
           $( layers ).each(function ( i, layer ) {
+            if ( typeof layer.lastStep == 'undefined' ) {
+              layer.lastStep = -1*max;
+            }
             var x    = e.pageX, card, offset;
             if ( x < halfDoc ) {
               card = '-';
@@ -234,11 +237,13 @@
               offset = max * -1;
             }
             var nextStep = parseFloat( card + ((Math.abs( (x-halfDoc)/halfDoc ) * (max * layer.mult)) + offset) ),
-            lastStep = parseFloat( layer.el.css('left') ),
-            diff = nextStep - lastStep;
+            lastStep = layer.lastStep,
+            diff = (nextStep+max) - (lastStep+max);
+            layer.lastStep = nextStep;
 
-            console.log( nextStep, lastStep );
-            layer.el.css( 'left', (diff>0?'+=':'-=') + nextStep + 'px' );
+            layer.el.css({
+              'translateX': (diff>0?'+=':'-=') + Math.abs(diff) + 'px'
+            });
           });
         }));
       });

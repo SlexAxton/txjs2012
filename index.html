@@ -233,7 +233,7 @@
           docSize = doc.width();
           halfDoc = docSize/2;
           $( layers ).each(function ( i, layer ) {
-            layer.el.width( ("MozAppearance" in document.documentElement.style) ? docSize-320 : docSize + (2*max) );
+            layer.el.width( ("MozAppearance" in document.documentElement.style) ? docSize-(docSize/10) : docSize + (2*max) );
             layer.el.css('left', '-' + max + 'px');
           });
         },

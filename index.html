@@ -8,31 +8,35 @@
         height: 100%;
         width: 100%;
         overflow: hidden;
-        background-color: rgba(252,84,63,1);
+        background-color: rgba(112,150,156,1);
         margin: 0;
         padding: 0;
       }
+      .logo {
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        background-color: rgba(250,100,12,1);
+        box-shadow: 0 0 20px rgba(255,100,0,.5), 0 0 120px rgba(255,175,0,1), inset 0 0 10px rgba(255,255,0,.5), inset 0 10px 20px rgba(255,255,255,.5), inset 0 -30px 40px rgba(255,255,0,.3);
+        position: fixed;
+        top: 100px;
+        left: 50%;
+        margin-left: -100px;
+      }
       #scene {
-        width: 100%;
-        height: 100%;
-        background-color: #FFF;
-        border-top-left-radius: 50%;
-        border-top-right-radius: 50%;
-        box-shadow: inset 0 0 300px 200px rgba(252,84,63,1), inset 0 0 400px 400px rgba(255,216,164,1);
-        -webkit-background-clip: padding-box;
         width: 150%;
         height: 150%;
         margin-left: -25%;
-        background-color: #FFF;
+        background-color: rgba(203,232,234,1);
         border-top-left-radius: 50%;
         border-top-right-radius: 50%;
-        box-shadow: inset 0 0 300px 200px rgba(252,84,63,1), inset 0 0 400px 400px rgba(255,216,164,1);
+        box-shadow: inset 0 0 300px 200px rgba(112,150,156,1), inset 0 0 400px 400px rgba(203,232,234,1);
         -webkit-background-clip: padding-box;
       }
       #scene-outer {
         border-width: 10px 10px 0 10px;
         border-style: solid;
-        border-color: rgba(252,84,63,1);
+        border-color: rgba(112,150,156,1);
         margin-left: -1px;
         width: 150%;
         height: 150%;
@@ -41,7 +45,7 @@
         border-top-left-radius: 49%;
         border-top-right-radius: 49%;
         box-sizing: border-box;
-        box-shadow: inset 0 0 75px rgba(252,84,63,1);
+        box-shadow: inset 0 0 75px rgba(112,150,156,1);
       }
       #fg, #power, #fg-mountains, #bg-mountains {
         position: fixed;
@@ -116,7 +120,7 @@
         onWinResize();
 
         // Listen for the mouseMove
-        $('#cover').mousemove($.throttle(13, function(e){
+        $('#cover').mousemove($.throttle(16, function(e){
 
           $( layers ).each(function ( i, layer ) {
             var x    = e.pageX, card, offset;
@@ -136,6 +140,7 @@
   </head>
   <body>
     <div id="cover"></div>
+    <h1 class="logo"></h1>
     <div id="scene-outer"></div>
     <div id="scene">
       <div id="fg">

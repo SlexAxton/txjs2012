@@ -2,6 +2,7 @@
 <html lang=en>
   <head>
     <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width">
     <title>TXJS 2012 | Texas JavaScript Conference</title>
     <style type="text/css">
       @font-face {
@@ -221,7 +222,8 @@
           }
         }
 
-        var max = 60,
+        var max = 100,
+        maxY = 200,
         layers = [
           {
             el : $('#fg'),
@@ -229,7 +231,7 @@
           },
           {
             el : $('#power'),
-            mult : 0.6
+            mult : 0.45
           },
           {
             el : $('#fg-mountains'),
@@ -242,17 +244,26 @@
         ],
         doc = $(document),
         scene = $('#scene'),
+        sun = $('.logo'),
         dbnc,
         onWinResize = function () {
           docSize = doc.width();
+          docSizeY = doc.height();
           halfDoc = docSize/2;
+          halfDocY = docSizeY/2;
           $( layers ).each(function ( i, layer ) {
             layer.el.width( ("MozAppearance" in document.documentElement.style) ? docSize-(docSize/10) : docSize + (2*max) );
             layer.el.css('left', '-' + max + 'px');
           });
         },
         docSize,
-        halfDoc;
+        docSizeY,
+        halfDoc,
+        halfDocY,
+        vertLayer = {
+          lastStep: -1*max,
+          lastStepY: -1*maxY
+        };
 
         // Get some bleed
         // Resize changes our math
@@ -266,7 +277,7 @@
             if ( typeof layer.lastStep == 'undefined' ) {
               layer.lastStep = -1*max;
             }
-            var x    = e.pageX, card, offset;
+            var x = e.pageX, card, offset;
             if ( x < halfDoc ) {
               card = '-';
               offset = max;
@@ -275,6 +286,7 @@
               card = '';
               offset = max * -1;
             }
+
             var nextStep = parseFloat( card + ((Math.abs( (x-halfDoc)/halfDoc ) * (max * layer.mult)) + offset) ),
             lastStep = layer.lastStep,
             diff = (nextStep+max) - (lastStep+max);
@@ -283,6 +295,38 @@
             layer.el.css({
               'translateX': (diff>0?'+=':'-=') + Math.abs(diff) + 'px'
             });
+          });
+
+          var y = e.pageY, cardY, offsetY, x = e.pageX, card, offset;
+
+          if ( y < halfDocY ) {
+            cardY = '-';
+            offsetY = maxY;
+          }
+          else {
+            cardY = '';
+            offsetY = maxY * -1;
+          }
+          if ( x < halfDoc ) {
+            card = '-';
+            offset = max;
+          }
+          else {
+            card = '';
+            offset = max * -1;
+          }
+          var nextStepY = parseFloat( cardY + ((Math.abs( (y-halfDocY)/halfDocY ) * (maxY)) + offsetY) ),
+          lastStepY = vertLayer.lastStepY,
+          diffY = (nextStepY+maxY) - (lastStepY+maxY);
+          vertLayer.lastStepY = nextStepY;
+          var nextStep = parseFloat( card + ((Math.abs( (x-halfDoc)/halfDoc ) * (max * 0.05)) + offset) ),
+            lastStep = vertLayer.lastStep,
+            diff = (nextStep+max) - (lastStep+max);
+            vertLayer.lastStep = nextStep;
+          sun.css({
+            'translateX': (diff>0?'+=':'-=') + Math.abs(diff) + 'px',
+            'translateY': (diffY>0?'+=':'-=') + Math.abs(diffY/40) + 'px',
+            'scale' : (diffY>0?'+=':'-=') + Math.abs(diffY/60000) + 'px'
           });
         }));
       });

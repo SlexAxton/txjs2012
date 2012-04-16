@@ -61,9 +61,81 @@
       #bg-mountains {
         z-index: 2;
       }
+      #cover {
+        width: 100%;
+        height: 100%;
+        position:fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        z-index:10;
+      }
     </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>
+      // Throttle/Debounce @cowboy | MIT
+      (function(b,c){var $=b.jQuery||b.Cowboy||(b.Cowboy={}),a;$.throttle=a=function(e,f,j,i){var h,d=0;if(typeof f!=="boolean"){i=j;j=f;f=c}function g(){var o=this,m=+new Date()-d,n=arguments;function l(){d=+new Date();j.apply(o,n)}function k(){h=c}if(i&&!h){l()}h&&clearTimeout(h);if(i===c&&m>e){l()}else{if(f!==true){h=setTimeout(i?k:l,i===c?e-m:e)}}}if($.guid){g.guid=j.guid=j.guid||$.guid++}return g};$.debounce=function(d,e,f){return f===c?a(d,e,false):a(d,f,e!==false)}})(this);
+      jQuery(function($){
+        var max = 60,
+        layers = [
+          {
+            el : $('#fg'),
+            mult : 0.9
+          },
+          {
+            el : $('#power'),
+            mult : 0.6
+          },
+          {
+            el : $('#fg-mountains'),
+            mult : 0.3
+          },
+          {
+            el : $('#bg-mountains'),
+            mult : 0.15
+          }
+        ],
+        doc = $(document),
+        scene = $('#scene'),
+        dbnc,
+        onWinResize = function () {
+          docSize = doc.outerWidth();
+          halfDoc = docSize/2;
+          $( layers ).each(function ( i, layer ) {
+            layer.el.width( docSize + (max*2) );
+            layer.el.css('left', '-' + max + 'px');
+          });
+        },
+        docSize,
+        halfDoc;
+
+        // Get some bleed
+        // Resize changes our math
+        $(window).resize($.throttle( 50, onWinResize));
+        onWinResize();
+
+        // Listen for the mouseMove
+        $('#cover').mousemove($.throttle(13, function(e){
+
+          $( layers ).each(function ( i, layer ) {
+            var x    = e.pageX, card, offset;
+            if ( x < halfDoc ) {
+              card = '-';
+              offset = max;
+            }
+            else {
+              card = '';
+              offset = max * -1;
+            }
+            layer.el.css( 'left', card + ((Math.abs( (x-halfDoc)/halfDoc ) * (max * layer.mult)) + offset) + 'px' );
+          });
+        }));
+      });
+    </script>
   </head>
   <body>
+    <div id="cover"></div>
     <div id="scene-outer"></div>
     <div id="scene">
       <div id="fg">

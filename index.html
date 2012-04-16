@@ -212,7 +212,12 @@
               card = '';
               offset = max * -1;
             }
-            layer.el.css( 'left', card + ((Math.abs( (x-halfDoc)/halfDoc ) * (max * layer.mult)) + offset) + 'px' );
+            var nextStep = parseFloat( card + ((Math.abs( (x-halfDoc)/halfDoc ) * (max * layer.mult)) + offset) ),
+            lastStep = parseFloat( layer.el.css('left') ),
+            diff = nextStep - lastStep;
+
+            console.log( nextStep, lastStep );
+            layer.el.css( 'left', (diff>0?'+=':'-=') + nextStep + 'px' );
           });
         }));
       });

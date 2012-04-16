@@ -84,18 +84,36 @@
         background-color: rgba(250,100,12,1);
         box-shadow: 0 0 20px rgba(255,100,0,.5), 0 0 120px rgba(255,175,0,1), inset 0 0 10px rgba(255,255,0,.5), inset 0 10px 20px rgba(255,255,255,.5), inset 0 -30px 40px rgba(255,255,0,.3);
         position: fixed;
-        top: 100px;
+        top: 80px;
         left: 50%;
         margin-left: -100px;
       }
       .info {
         position: absolute;
         left: 50%;
+        top: 360px;
         text-align: center;
         width: 60%;
         margin-left: -30%;
         z-index: 5;
         padding: 30px 0;
+      }
+      .info h2,
+      .info #location {
+        display: inline-block;
+        font-family: 'txjsMediumItalic';
+        font-size: 49px;
+        text-align: center;
+        text-shadow: 1px 1px 0 #F7F4DB, 2px 2px 0 #AD9D55;
+        letter-spacing: -2px;
+        color: #762F2F;
+      }
+      #date:before {
+        content: '\2219';
+        float: left;
+        width: 20px;
+        text-align: center;
+        padding-right: 4px;
       }
       #location .street-address,
       #location .postal-code,
@@ -126,7 +144,10 @@
         box-sizing: border-box;
         box-shadow: inset 0 0 75px rgba(112,150,156,1);
       }
-      #fg, #power, #fg-mountains, #bg-mountains {
+      #fg,
+      #power,
+      #fg-mountains,
+      #bg-mountains {
         position: fixed;
         z-index: 5;
         width: 100%;
@@ -227,14 +248,16 @@
     <div id="cover"></div>
     <h1 class="logo"></h1>
     <div class="info">
-      <h2 id="date"><time datetime="2011-06-11">Thursday, June <span class="caps">14 2011</span></time></h2>
       <div id="location">
         <div class="street-address">1120 South Lamar Boulevard</div>
-        <span class="locality">Austin</span>
-        <span class="region">Texas</span>
+        <h2>
+          <span class="locality">Austin, </span>
+          <span class="region">Texas</span>
+        </h2>
         <span class="postal-code">78704</span>
         <div class="country-name">U.S.A.</div>
       </div>
+      <h2 id="date"><time datetime="2011-06-11">Thursday, June <span class="caps">14 2012</span></time></h2>
     </div>
     <div id="scene-outer"></div>
     <div id="scene">

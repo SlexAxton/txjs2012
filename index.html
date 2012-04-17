@@ -352,19 +352,22 @@ false)}})(this);jQuery(function(a){"webkitAppearance"in document["documentE"+
               )})},j,k          ,l,m,n={lastStep:-1*b,lastStepY:-1*
                 c};a(             "html.ie").length || (a(window).
                                     resize(a.throttle(50,i)),i(),
-                                    a("#cover").mousemove(a
-                                      .throttle(40,function
-                                      (e){/**/a(d).each(
-                                        function(a,c){
-                                         typeof c["l"+
-                                         "astStep"]==
-                                          "undefined"
-                                            &&(c["las"
-                                               +"tStep"
-                                                   ]=-1
+                                    (navigator.userAgent.match
+                                     (/mobile/)? 0: a("#cover")
+                                      .mousemove(a.throttle(40,
+                                      function(e){a(d).each
+                                        (function/**/(a,c){
+                                          typeof c["las"+
+                                            "tStep"]=="u"+
+                                              "ndefined"
+                                                 &&(c[
+                                                  "las"
 
 
 
+
+
+ +"tStep"]=-1
   *b);var d=e.pageX,f,g;d<l?(f="-",g=b):(f="",g=b*-1);var h=parseFloat(f+(Math.abs
   ((d-l)/l)*b*c.mult+g)),i=c.lastStep,j=h+b-(i+b);c.lastStep=h,c.el.css({translateX
   :(j>0?"+=":"-=")+Math.abs(j)+"px"})});var f=e.pageY,h,i,j=e.pageX,k,o;f<m?(h="-",
@@ -372,7 +375,7 @@ false)}})(this);jQuery(function(a){"webkitAppearance"in document["documentE"+
   )*c+i)),q=n.lastStepY,r=p+c-(q+c);n.lastStepY=p;var s=parseFloat(k+(Math.abs((j-l)/l)
   *b*.05+o)),t=n.lastStep,u=s+b-(t+b);n.lastStep=s,g.css({translateX:(u>0?"+=":"-=")+
   Math.abs(u/10)+"px",rotateZ:(u>0?"+=":"-=")+Math.abs(0)+"",scale:(r>0?"+=":"-=")
-  +Math.abs(r/3e4)+"px"})}))); jQuery(window).trigger('resize');})
+  +Math.abs(r/3e4)+"px"})})))  ); jQuery(window).trigger('resize');})
 
   // Uses Throttle/Debounce @cowboy | MIT //
 

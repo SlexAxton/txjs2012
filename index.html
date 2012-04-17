@@ -82,39 +82,36 @@
         width: 200px;
         height: 200px;
         border-radius: 100px;
-        background-color: rgba(250,100,12,1);
+        background-color: rgba(255,103,0,1);
         box-shadow: 0 0 20px rgba(255,100,0,.5), 0 0 120px rgba(255,175,0,1), inset 0 0 10px rgba(255,255,0,.5), inset 0 10px 20px rgba(255,255,255,.5), inset 0 -30px 40px rgba(255,255,0,.3);
         position: fixed;
-        top: 80px;
+        top: 40px;
         left: 50%;
         margin-left: -100px;
       }
       .info {
         position: absolute;
         left: 50%;
-        top: 360px;
+        top: 320px;
         text-align: center;
         width: 60%;
         margin-left: -30%;
-        z-index: 5;
-        padding: 30px 0;
       }
       .info h2,
       .info #location {
-        display: inline-block;
-        font-family: 'txjsMediumItalic';
-        font-size: 49px;
+        text-transform: uppercase;
+        font-family: 'txjsRegularItalic';
+        letter-spacing: 3px;
+        font-size: 24px;
         text-align: center;
-        text-shadow: 1px 1px 0 #F7F4DB, 2px 2px 0 #AD9D55;
-        letter-spacing: -2px;
         color: #762F2F;
       }
-      #date:before {
-        content: '\2219';
-        float: left;
-        width: 20px;
-        text-align: center;
-        padding-right: 4px;
+      .info #location h2 {
+        font-size: 72px;
+        margin: 0 0 8px;
+        font-family: 'txjsSemiboldItalic';
+        text-shadow: 2px 2px 0px #CBE8EA, 4px 4px 0px #B3A562;
+        letter-spacing: -2px;
       }
       #location .street-address,
       #location .postal-code,
@@ -349,24 +346,20 @@
     </div>
     <ul id="speakers">
         <li>
-          <img src="http://cdn.yayquery.com/txjs/images/speakers/photo_speaker_eich.jpg" alt="Brendan Eich" />
-          <span class="speaker-name">Brendan Eich</span>
-          <span class="speaker-description">CTO Mozilla, Creator of JS</span>
-        </li>
-        <li>
-          <img src="http://cdn.yayquery.com/txjs/images/speakers/photo_speaker_russell.jpg" alt="Alex Russell" />
+          <img src="img/alex-russell.jpg" alt="Alex Russell" />
           <span class="speaker-name">Alex Russell</span>
-          <span class="speaker-description">Google, Dojo</span>
         </li>
         <li>
-          <img src="http://cdn.yayquery.com/txjs/images/speakers/photo_speaker_crock.jpg" alt="Douglas Crockford" />
-          <span class="speaker-name">Douglas Crockford</span>
-          <span class="speaker-description">Yahoo, <em>The Good Parts</em></span>
+          <img src="img/lea-verou.jpg" alt="Lea Verou" />
+          <span class="speaker-name">Lea Verou</span>
         </li>
         <li>
-          <img src="http://cdn.yayquery.com/txjs/images/speakers/photo_speaker_irish.jpg" alt="Paul Irish" />
-          <span class="speaker-name">Paul Irish</span>
-          <span class="speaker-description">Google, jQuery, Modernizr</span>
+          <img src="img/jacob-thornton.jpg" alt="Jacob Thornton" />
+          <span class="speaker-name">Jacob Thornton</span>
+        </li>
+        <li>
+          <img src="img/rebecca-murphey.jpg" alt="Rebecca Murphey" />
+          <span class="speaker-name">Rebecca Murphey</span>
         </li>
       </ul>
     <div id="scene-outer"></div>

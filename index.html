@@ -367,13 +367,14 @@ false)}})(this);jQuery(function(a){"webkitAppearance"in document["documentE"+
 
 
 
-      +
-      "tStep"]=-1
-      *b);var d=e.pageX,f,g;d<l?(f="-",g=b):(f="",g=b*-1);var h=parseFloat(f+(Math.abs
-      ((d-l)/l)*b*c.mult+g)),i=c.lastStep,j=h+b-(i+b);c.lastStep=h,c.el.css({translateX
-      :(j>0?"+=":"-=")+Math.abs(j)+"px"})});var f=e.pageY,h,i,j=e.pageX,k,o;f<m?(h="-",
-      i=c):(h="",i=c*-1),j<l?(k="-",o=b):(k="",o=b*-1);var    p=parseFloat(h+(Math.abs
-      ((f-m)/m) *c+i)),q=n.lastStepY,r=p+c-(q+c);n.lastStepY=p;var s=
+    +
+    "tStep"]=-1
+      *b);var d=e.pageX,f,g;d<l?(f="-",g=b):(f="",g=b*-1);var h=parseFloat
+      (f+(Math.abs((d-l)/l)*b*c.mult+g)),i=c.lastStep,j=h+b-(i+b);c.lastStep
+      =h,c.el.css({translateX:(j>0?"+=":"-=")+Math.abs(j)+"px"})});var f=e.
+      pageY,h,i,j=e.pageX,k,o;f<m?(h="-",i=c):(h="",i=c*-1),j<l?(k="-",o=b):
+      (k="",o=b*-1);var    p=parseFloat(h+(Math.abs((f-m)/m) *c+i)),q=n.
+      lastStepY,r=p+c-(q+c);n.lastStepY=p;var s=
       parseFloat     (k  +(Math
       .abs((j-l)/   l)   *b*.05
       +o)),t=n.     lastStep,u
@@ -390,6 +391,10 @@ false)}})(this);jQuery(function(a){"webkitAppearance"in document["documentE"+
       +"px"})}))));$(
       window).trigger
       ('resize');})
+
+
+
+
       // Uses Throttle/Debounce @cowboy | MIT //
     </script>
   </head>

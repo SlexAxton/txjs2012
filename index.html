@@ -282,7 +282,7 @@ typeof c["lastStep"]=="u"+"ndefined"&&(c["las"
           }, false);
         }
       }
-      else if (navigator.userAgent.match(/safari/i)&&!navigator.userAgent.match(/chrome|crmo|mobile/i)) {
+      else if ((navigator.userAgent.match(/safari/i)&&!navigator.userAgent.match(/chrome|crmo|mobile/i))||navigator.userAgent.match(/ipad/g)) {
         $(function(){$('html').addClass('omgsf');});
       }
       jQuery(function($){

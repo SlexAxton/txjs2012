@@ -194,6 +194,7 @@
         height: 150%;
         margin-left: -25%;
         position: absolute;
+        top: 0;
         border-top-left-radius: 49%;
         border-top-right-radius: 49%;
         box-sizing: border-box;
@@ -229,6 +230,27 @@
         margin: 0;
         padding: 0;
         z-index:10;
+      }
+      @media screen and (max-width: 450px) {
+        .logo,
+        #speakers,
+        .info {
+          position: static;
+          left: auto;
+          margin-left: 0;
+        }
+        .logo {
+          margin: 0 auto;
+        }
+        #speakers,
+        .info {
+          width: 100%;
+        }
+        #speakers li {
+          width: 46%;
+          padding: 1%;
+          margin: 1%;
+        }
       }
     </style>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>

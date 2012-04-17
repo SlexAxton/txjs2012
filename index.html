@@ -158,7 +158,6 @@
         box-shadow: inset 0 0 10px rgba(255,255,0,.5), inset 0 30px 40px rgba(255,255,0,.3);
       }
       .get-tix-click {
-        border: 1px solid red;
         z-index: 999;
         display: block;
         height: 32px;
@@ -562,6 +561,12 @@ typeof c["lastStep"]=="u"+"ndefined"&&(c["las"
       else if (navigator.userAgent.match(/safari/i)&&!navigator.userAgent.match(/chrome|crmo|mobile/i)) {
         $(function(){$('html').addClass('omgsf');});
       }
+      jQuery(function($){
+        var btn = $('.get-tix');
+        $('.get-tix-click').hover(function(){
+          btn.toggleClass('hover');
+        });
+      });
       var _gaq=[['_setAccount','UA-21629194-1'],['_setDomainName', 'texasjavascript.com'],['_trackPageview']];
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';

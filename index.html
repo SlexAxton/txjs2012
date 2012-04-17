@@ -7,7 +7,7 @@
   <head>
     <meta charset=utf-8>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TXJS 2012 | Texas JavaScript Conference</title>
     <style type="text/css">
       @font-face {
@@ -619,5 +619,23 @@ false)}})(this);jQuery(function(a){"webkitAppearance"in document["documentE"+
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
     </script>
+    <script>
+  		window.addEventListener("load",function() {
+  		  setTimeout(function(){
+  		    window.scrollTo(0, 1);
+  		  }, 0);
+  		});
+  	</script>
+  	<script>
+  		if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
+  		  var viewportmeta = document.querySelector('meta[name="viewport"]');
+  		  if (viewportmeta) {
+  		    viewportmeta.content = 'width=device-width, minimum-scale=1.0, maximum-scale=1.0';
+  		    document.body.addEventListener('gesturestart', function() {
+  		      viewportmeta.content = 'width=device-width, minimum-scale=0.25, maximum-scale=1.6';
+  		    }, false);
+  		  }
+  		}
+  	</script>
   </body>
 </html>

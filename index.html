@@ -90,6 +90,7 @@
       }
       .content {
         padding-bottom: 500px;
+        text-align: center;
       }
       .logo {
         width: 140px;
@@ -106,8 +107,7 @@
         position: relative;
       }
       .info {
-        position: absolute;
-        top: 320px;
+        position: relative;
         text-align: center;
         width: 100%;
         z-index: 2;
@@ -133,6 +133,15 @@
       #location .country-name {
         display: none;
       }
+      .get-tix-click,
+      .get-tix {
+        padding: 16px 40px;
+        font-size: 24px;
+        display: inline-block;
+        margin-top: 8px;
+        position: relative;
+        z-index: 2;
+      }
       .get-tix {
         background-color: rgba(255,103,0,1);
         border-width: 1px 0 1px 0;
@@ -141,16 +150,21 @@
         -webkit-border-radius: 8px;
         -moz-border-radius: 8px;
         border-radius: 8px;
-        padding: 16px 40px;
         font-family: 'txjsSemiboldItalic';
         color: #FFF;
-        font-size: 24px;
-        display: inline-block;
-        margin-top: 8px;
         text-shadow: 0 -1px rgba(68,31,29,0.8);
         font-weight: normal;
         -webkit-box-shadow: inset 0 0 10px rgba(255,255,0,.5), inset 0 30px 40px rgba(255,255,0,.3);
         box-shadow: inset 0 0 10px rgba(255,255,0,.5), inset 0 30px 40px rgba(255,255,0,.3);
+      }
+      .get-tix-click {
+        border: 1px solid red;
+        z-index: 999;
+        display: block;
+        height: 32px;
+        top:-72px;
+        width: 180px;
+        margin: 8px auto 0;
       }
       #speakers {
         position: fixed;
@@ -441,8 +455,9 @@ typeof c["lastStep"]=="u"+"ndefined"&&(c["las"
           <div class="country-name">U.S.A.</div>
         </div>
         <h2 id="date"><time datetime="2011-06-11">Thursday, June <span class="caps">14, 2012</span></time></h2>
-        <a href="http://txjs2012.eventbrite.com/" class="get-tix">Get Yer Tix</a>
       </div>
+      <a href="http://txjs2012.eventbrite.com/" class="get-tix">Get Yer Tix</a>
+      <a href="http://txjs2012.eventbrite.com/" class="get-tix-click"></a>
       <ul id="speakers">
           <li>
             <img src="img/alex-russell.jpg" alt="Alex Russell" />

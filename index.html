@@ -74,11 +74,13 @@
       html {
         height: 100%;
         width: 100%;
-        overflow: hidden;
         background-color: rgba(112,150,156,1);
         margin: 0;
         padding: 0;
         font-family: 'txjsRegular', Arial;
+      }
+      body {
+        overflow-x: hidden;
       }
       h2 {
         margin: 0 0 10px;
@@ -97,6 +99,7 @@
         left: 50%;
         padding: 50px 0;
         margin-left: -100px;
+        z-index: 2;
       }
       .info {
         position: absolute;
@@ -105,6 +108,7 @@
         text-align: center;
         width: 60%;
         margin-left: -30%;
+        z-index: 2;
       }
       .info h2,
       .info #location {
@@ -175,10 +179,15 @@
         border: 1px solid black;
         box-sizing: border-box;
       }
-      #scene {
+      #scene,
+      #scene-outer {
+        position: fixed;
+        top: 0;
         width: 150%;
         height: 150%;
         margin-left: -25%;
+      }
+      #scene {
         background-color: rgba(203,232,234,1);
         border-top-left-radius: 50%;
         border-top-right-radius: 50%;
@@ -189,12 +198,6 @@
         border-width: 10px 10px 0 10px;
         border-style: solid;
         border-color: rgba(112,150,156,1);
-        margin-left: -1px;
-        width: 150%;
-        height: 150%;
-        margin-left: -25%;
-        position: absolute;
-        top: 0;
         border-top-left-radius: 49%;
         border-top-right-radius: 49%;
         box-sizing: border-box;
@@ -208,7 +211,7 @@
         z-index: 5;
         width: 100%;
         left: 0;
-        bottom: -6px;
+        bottom: -4px;
       }
       #power {
         z-index: 4;
@@ -232,6 +235,14 @@
         z-index:10;
       }
       @media screen and (max-width: 450px) {
+        #scene,
+        #scene-outer {
+          height: 100%;
+        }
+        .content {
+          position: relative;
+          z-index: 7;
+        }
         .logo,
         #speakers,
         .info {
@@ -245,6 +256,10 @@
         #speakers,
         .info {
           width: 100%;
+        }
+        #speakers {
+          padding-bottom: 40%;
+          overflow: hidden;
         }
         #speakers li {
           width: 46%;
@@ -440,43 +455,44 @@ false)}})(this);jQuery(function(a){"webkitAppearance"/*...*/in document.
   </head>
   <body>
     <div id="cover"></div>
-    <h1 class="logo">
-      <object width="100%" data='txjs-logo.svg' type='image/svg+xml'>
-        <param name='src' value='txjs-logo.svg' />
-      </object>
-    </h1>
-    <div class="info">
-      <div id="location">
-        <div class="street-address">1120 South Lamar Boulevard</div>
-        <h2>
-          <span class="locality">Austin, </span>
-          <span class="region">Texas</span>
-        </h2>
-        <span class="postal-code">78704</span>
-        <div class="country-name">U.S.A.</div>
+    <div class="content">
+      <h1 class="logo">
+        <object width="100%" data='txjs-logo.svg' type='image/svg+xml'>
+          <param name='src' value='txjs-logo.svg' />
+        </object>
+      </h1>
+      <div class="info">
+        <div id="location">
+          <div class="street-address">1120 South Lamar Boulevard</div>
+          <h2>
+            <span class="locality">Austin, </span>
+            <span class="region">Texas</span>
+          </h2>
+          <span class="postal-code">78704</span>
+          <div class="country-name">U.S.A.</div>
+        </div>
+        <h2 id="date"><time datetime="2011-06-11">Thursday, June <span class="caps">14 2012</span></time></h2>
+        <a href="#" class="get-tix">Get Yer Tix</a>
       </div>
-      <h2 id="date"><time datetime="2011-06-11">Thursday, June <span class="caps">14 2012</span></time></h2>
-      <a href="#" class="get-tix">Get Yer Tix</a>
-    </div>
-    <ul id="speakers">
-        <li>
-          <img src="img/alex-russell.jpg" alt="Alex Russell" />
-          <span class="speaker-name">Alex Russell</span>
-        </li>
-        <li>
-          <img src="img/lea-verou.jpg" alt="Lea Verou" />
-          <span class="speaker-name">Lea Verou</span>
-        </li>
-        <li>
-          <img src="img/jacob-thornton.jpg" alt="Jacob Thornton" />
-          <span class="speaker-name">Jacob Thornton</span>
-        </li>
-        <li>
-          <img src="img/rebecca-murphey.jpg" alt="Rebecca Murphey" />
-          <span class="speaker-name">Rebecca Murphey</span>
-        </li>
-      </ul>
-    <div id="scene-outer"></div>
+      <ul id="speakers">
+          <li>
+            <img src="img/alex-russell.jpg" alt="Alex Russell" />
+            <span class="speaker-name">Alex Russell</span>
+          </li>
+          <li>
+            <img src="img/lea-verou.jpg" alt="Lea Verou" />
+            <span class="speaker-name">Lea Verou</span>
+          </li>
+          <li>
+            <img src="img/jacob-thornton.jpg" alt="Jacob Thornton" />
+            <span class="speaker-name">Jacob Thornton</span>
+          </li>
+          <li>
+            <img src="img/rebecca-murphey.jpg" alt="Rebecca Murphey" />
+            <span class="speaker-name">Rebecca Murphey</span>
+          </li>
+        </ul>
+      </div>
     <div id="scene">
       <div id="fg">
         <object width="100%" data='txjs1.svg' type='image/svg+xml'>
@@ -499,6 +515,7 @@ false)}})(this);jQuery(function(a){"webkitAppearance"/*...*/in document.
         </object>
       </div>
     </div>
+    <div id="scene-outer"></div>
 
     <!--[if lt IE 9]>
       <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>

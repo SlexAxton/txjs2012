@@ -232,12 +232,63 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="/transformjs.1.0.beta.2.min.js"></script>
     <script>
-      // Throttle/Debounce @cowboy | MIT
-      (function(b,c){var $=b.jQuery||b.Cowboy||(b.Cowboy={}),a;$.throttle=a=function(e,f,j,i){var h,d=0;if(typeof f!=="boolean"){i=j;j=f;f=c}function g(){var o=this,m=+new Date()-d,n=arguments;function l(){d=+new Date();j.apply(o,n)}function k(){h=c}if(i&&!h){l()}h&&clearTimeout(h);if(i===c&&m>e){l()}else{if(f!==true){h=setTimeout(i?k:l,i===c?e-m:e)}}}if($.guid){g.guid=j.guid=j.guid||$.guid++}return g};$.debounce=function(d,e,f){return f===c?a(d,e,false):a(d,f,e!==false)}})(this);
-      jQuery(function($){
-        if ( 'webkitAppearance' in document.documentElement.style ) {
-          // sorry mike
-          if ( !navigator.userAgent.match(/Chrome/i) ) {
+
+                      (function(b,c){var
+                      $=b.jQuery||/**/b
+                      .Cowboy||(b.Cowboy
+                      ={}),a;$.throttle
+                      =a=function(e,f,
+                     j,i){var h,d=0;if(
+                     typeof f!=="bool"+
+                     "ean"){i=j;j=f;f=c}
+                     function g(){var o=this,m=
+                     +new Date()-d,n=arguments;function l(){d=+new Date
+                     ();j.apply(o,n)}function k(){h=c}if(i&&!h){l()}h&&
+                    clearTimeout(h);if(i===c&&m>e){l()}else{if(f!==true)
+                    {h=setTimeout(i?k:l,i===c?e-m:e)}}}if($.guid){g.guid
+                    =j.guid=j.guid||$.guid++}return g};/*..*/$.debounce=
+                    function(d,e,f){return f===c?a(d,e,false):a(d,f,e!==
+false)}})(this);jQuery(function(a){"webkitAppearance"/*...*/in document.
+  documentElement.style&&(navigator.userAgent.match(/Chrome/i)||a("object")
+    .each(function(){var b=a(this);b.replaceWith(a("<img/>").attr(/**/{src:
+       b.attr("data"),width:"1"+"00%;"}))}));var b=100,c=200,d=[{el:a("#fg")
+         ,mult:.9},{el:a("#power"),mult:.45},{el:a("#fg-mountains"),mult:.3}
+          ,{el:a("#bg-mountains"),mult:.15}],e=a(document),f=a("#scene"),g=a
+           (".logo"),h,i=function(){j=e.width(),k=e.height(),l=j/2,m=k/2,a(d
+            ).each(function(a,c){c.el.width("MozAppearance"/**/in document.
+            documentElement.style?j-j/10:j+2*b),c.el.css("left","-"+b+"px"
+              )})},j,k          ,l,m,n={lastStep:-1*b,lastStepY:-1*
+                c};a(             "html.ie").length || (a(window).
+                                    resize(a.throttle(50,i)),i(),
+                                    a("#cover").mousemove(a
+                                      .throttle(40,function
+                                      (e){/**/a(d).each(
+                                        function(a,c){
+                                         typeof c["l"+
+                                         "astStep"]==
+                                          "undefined"
+                                            &&(c["las"
+                                               +"tStep"
+                                                   ]=-1
+
+
+
+  *b);var d=e.pageX,f,g;d<l?(f="-",g=b):(f="",g=b*-1);var h=parseFloat(f+(Math.abs
+  ((d-l)/l)*b*c.mult+g)),i=c.lastStep,j=h+b-(i+b);c.lastStep=h,c.el.css({translateX
+  :(j>0?"+=":"-=")+Math.abs(j)+"px"})});var f=e.pageY,h,i,j=e.pageX,k,o;f<m?(h="-",
+  i=c):(h="",i=c*-1),j<l?(k="-",o=b):(k="",o=b*-1);var p=parseFloat(h+(Math.abs((f-m)/m
+  )*c+i)),q=n.lastStepY,r=p+c-(q+c);n.lastStepY=p;var s=parseFloat(k+(Math.abs((j-l)/l)
+  *b*.05+o)),t=n.lastStep,u=s+b-(t+b);n.lastStep=s,g.css({translateX:(u>0?"+=":"-=")+
+  Math.abs(u/10)+"px",rotateZ:(u>0?"+=":"-=")+Math.abs(u/25)+"",scale:(r>0?"+=":"-=")
+  +Math.abs(r/3e4)+"px"})})))})
+
+  // Uses Throttle/Debounce @cowboy | MIT //
+
+
+
+    /*jQuery(function($
+      ){if('webkitAppearance' in document.
+      documentElement.style){if ( !navigator.userAgent.match(/Chrome/i) ) {
             // If it's webkit, but not chrome, it usually sucks at svg as <object>
             $('object').each(function(){
               var $this = $(this);
@@ -359,7 +410,7 @@
             });
           }));
         }
-      });
+      });*/
     </script>
   </head>
   <body>

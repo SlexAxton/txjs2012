@@ -296,7 +296,7 @@ false)}})(this);jQuery(function(a){"webkitAppearance"/*...*/in document.
           ,{el:a("#bg-mountains"),mult:.15}],e=a(document),f=a("#scene"),g=a
            (".logo"),h,i=function(){j=e.width(),k=e.height(),l=j/2,m=k/2,a(d
             ).each(function(a,c){c.el.width("MozAppearance"/**/in document.
-            documentElement.style?j-j/10:j+2*b),c.el.css("left","-"+b+"px"
+            documentElement.style?j+2*b:j+2*b),c.el.css("left","-"+b+"px"
               )})},j,k          ,l,m,n={lastStep:-1*b,lastStepY:-1*
                 c};a(             "html.ie").length || (a(window).
                                     resize(a.throttle(50,i)),i(),
@@ -521,26 +521,41 @@ false)}})(this);jQuery(function(a){"webkitAppearance"/*...*/in document.
       <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
       <style>
        .chromeFrameInstallDefaultStyle {
-         width: 800px;
+       width: 800px;
          position: fixed;
          display: block;
-         top: 400px;
-         left: 200px;
+         top: 53%;
+         left: 50%;
          z-index: 999;
-         margin-left: -20%;
-       }
+         border: 5px solid #CCC;
+         padding: 10px;
+      }
+      #prompt {
+        position: fixed;
+        top: 0px;
+        width: 20%;
+        left: 40%;
+        border: 10px solid #762F2E;
+        background-color: #FFF;
+        padding: 10px;
+        z-index: 1000;
+      }
       </style>
       <div id="prompt">
-        Due to the modern technologies used in this demo, you may have a better experience
-        <a href="http://browsehappy.com/">upgrading to a different browser</a> or
-        <a href="http://www.google.com/chromeframe/?redirect=true">installing Google Chrome Frame</a>, though
-        the page should be functional, just not pretty.
+        Due to the modern technologies used on this site, you'll need to
+        <a href="http://browsehappy.com/">upgrade to a more modern browser</a> or
+        <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a>.
       </div>
+      <div id="prompt-fill"></div>
       <script>
+       // Dealing with position fixed here just isn't worth it.
+       if ( $('.lt-ie7').length ) {
+         window.location = "http://txjs2012.eventbrite.com/";
+       }
        window.attachEvent("onload", function() {
          CFInstall.check({
            mode: "inline",
-           node: "prompt"
+           node: "prompt-fill"
          });
        });
       </script>

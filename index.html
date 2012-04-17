@@ -282,8 +282,11 @@ typeof c["lastStep"]=="u"+"ndefined"&&(c["las"
           }, false);
         }
       }
-      else if ((navigator.userAgent.match(/safari/i)&&!navigator.userAgent.match(/chrome|crmo|mobile/i))||navigator.userAgent.match(/ipad/g)) {
+      if ((navigator.userAgent.match(/safari/i)&&!navigator.userAgent.match(/chrome|crmo|mobile/i))) {
         $(function(){$('html').addClass('omgsf');});
+      }
+      else if (navigator.userAgent.match(/ipad/i)) {
+        $(function(){$('html').addClass('omgip');});
       }
       jQuery(function($){
         var btn = $('.get-tix');

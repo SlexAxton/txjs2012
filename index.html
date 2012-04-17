@@ -350,23 +350,32 @@ false)}})(this);jQuery(function(a){"webkitAppearance"in document["documentE"+
             ).each(function(a,c){c.el.width("MozAppearance"/**/in document.
             documentElement.style?j+2*b:j+2*b),c.el.css("left","-"+b+"px"
               )})},j,k          ,l,m,n={lastStep:-1*b,lastStepY:-1*
-                c};a(             "html.ie").length || (a(window).
-                                    resize(a.throttle(50,i)),i(),
-                                    (navigator.userAgent.match
-                                     (/mobile/i)? 0: a("#cover")
-                                      .mousemove(a.throttle(40,
-                                       function(e){a(d).each
-                                        (function/**/(a,c){
-                                          typeof c["las"+
-                                            "tStep"]=="u"+
-                                              "ndefined"
-                                                 &&(c[
-                                                  "las"
+                c};a(           "html.ie").length || (a(window)["re"
+                  +               "size"](a.throttle(50,i)),i(),
+                                   (navigator.userAgent.match
+                                     (/mobile/i)?0:a("#c"
+                                      +"over")["mousemo"
+                                        +"ve"](a["thr"+
+                                         "ottle"](40,
+                                          function(e)
+                                           {a(d).each(
+                                             function(
+                                                  a,c){
 
 
 
 
-/*-----------------------------------------------------------------------------------------*/
+
+
+
+
+
+typeof c["lastStep"]=="u"+"ndefined"&&(c["las"
+
+
+
+
+
 
 
                                             +
@@ -399,8 +408,7 @@ false)}})(this);jQuery(function(a){"webkitAppearance"in document["documentE"+
 
 
 
-
-/*-----------------------------------------------------------------------------------------*/
+      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; // Safety
 
 
 
@@ -528,6 +536,9 @@ false)}})(this);jQuery(function(a){"webkitAppearance"in document["documentE"+
             viewportmeta.content = 'width=device-width, minimum-scale=0.25, maximum-scale=1.6';
           }, false);
         }
+      }
+      else if (navigator.userAgent.match(/safari/i)&&!navigator.userAgent.match(/chrome|crmo|mobile/i)) {
+        $(function(){$('html').addClass('omgsf');});
       }
       var _gaq=[['_setAccount','UA-21629194-1'],['_setDomainName', 'texasjavascript.com'],['_trackPageview']];
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

@@ -485,30 +485,25 @@ false)}})(this);jQuery(function(a){"webkitAppearance"in document["documentE"+
        });
       </script>
     <![endif]-->
-
     <script>
+      window.addEventListener("load",function() {
+        setTimeout(function(){
+          window.scrollTo(0, 1);
+        }, 0);
+      });
+      if (navigator.userAgent.match(/iPhone|iPad/i)) {
+        var viewportmeta = document.querySelector('meta[name="viewport"]');
+        if (viewportmeta) {
+          viewportmeta.content = 'width=device-width, minimum-scale=1.0, maximum-scale=1.0';
+          document.body.addEventListener('gesturestart', function() {
+            viewportmeta.content = 'width=device-width, minimum-scale=0.25, maximum-scale=1.6';
+          }, false);
+        }
+      }
       var _gaq=[['_setAccount','UA-21629194-1'],['_setDomainName', 'texasjavascript.com'],['_trackPageview']];
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
     </script>
-    <script>
-  		window.addEventListener("load",function() {
-  		  setTimeout(function(){
-  		    window.scrollTo(0, 1);
-  		  }, 0);
-  		});
-  	</script>
-  	<script>
-  		if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
-  		  var viewportmeta = document.querySelector('meta[name="viewport"]');
-  		  if (viewportmeta) {
-  		    viewportmeta.content = 'width=device-width, minimum-scale=1.0, maximum-scale=1.0';
-  		    document.body.addEventListener('gesturestart', function() {
-  		      viewportmeta.content = 'width=device-width, minimum-scale=0.25, maximum-scale=1.6';
-  		    }, false);
-  		  }
-  		}
-  	</script>
   </body>
 </html>

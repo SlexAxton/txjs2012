@@ -1,7 +1,12 @@
 <!DoctYpe html>
-<html lang=en>
+<!--[if lt IE 7]> <html class="no-js ie lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie" lang="en"> <![endif]-->
+<!--[if !IE]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
   <head>
     <meta charset=utf-8>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
     <title>TXJS 2012 | Texas JavaScript Conference</title>
     <style type="text/css">
@@ -223,6 +228,7 @@
         z-index:10;
       }
     </style>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="/transformjs.1.0.beta.2.min.js"></script>
     <script>
@@ -286,19 +292,50 @@
           lastStepY: -1*maxY
         };
 
-        // Get some bleed
-        // Resize changes our math
-        $(window).resize($.throttle( 50, onWinResize));
-        onWinResize();
+        // Just doesn't perform well in IE :/
+        if ( !$('html.ie').length ) {
+          // Get some bleed
+          // Resize changes our math
+          $(window).resize($.throttle( 50, onWinResize));
+          onWinResize();
 
-        // Listen for the mouseMove
-        $('#cover').mousemove($.throttle(40, function(e){
+          // Listen for the mouseMove
+          $('#cover').mousemove($.throttle(40, function(e){
 
-          $( layers ).each(function ( i, layer ) {
-            if ( typeof layer.lastStep == 'undefined' ) {
-              layer.lastStep = -1*max;
+            $( layers ).each(function ( i, layer ) {
+              if ( typeof layer.lastStep == 'undefined' ) {
+                layer.lastStep = -1*max;
+              }
+              var x = e.pageX, card, offset;
+              if ( x < halfDoc ) {
+                card = '-';
+                offset = max;
+              }
+              else {
+                card = '';
+                offset = max * -1;
+              }
+
+              var nextStep = parseFloat( card + ((Math.abs( (x-halfDoc)/halfDoc ) * (max * layer.mult)) + offset) ),
+              lastStep = layer.lastStep,
+              diff = (nextStep+max) - (lastStep+max);
+              layer.lastStep = nextStep;
+
+              layer.el.css({
+                'translateX': (diff>0?'+=':'-=') + Math.abs(diff) + 'px'
+              });
+            });
+
+            var y = e.pageY, cardY, offsetY, x = e.pageX, card, offset;
+
+            if ( y < halfDocY ) {
+              cardY = '-';
+              offsetY = maxY;
             }
-            var x = e.pageX, card, offset;
+            else {
+              cardY = '';
+              offsetY = maxY * -1;
+            }
             if ( x < halfDoc ) {
               card = '-';
               offset = max;
@@ -307,49 +344,21 @@
               card = '';
               offset = max * -1;
             }
-
-            var nextStep = parseFloat( card + ((Math.abs( (x-halfDoc)/halfDoc ) * (max * layer.mult)) + offset) ),
-            lastStep = layer.lastStep,
-            diff = (nextStep+max) - (lastStep+max);
-            layer.lastStep = nextStep;
-
-            layer.el.css({
-              'translateX': (diff>0?'+=':'-=') + Math.abs(diff) + 'px'
+            var nextStepY = parseFloat( cardY + ((Math.abs( (y-halfDocY)/halfDocY ) * (maxY)) + offsetY) ),
+            lastStepY = vertLayer.lastStepY,
+            diffY = (nextStepY+maxY) - (lastStepY+maxY);
+            vertLayer.lastStepY = nextStepY;
+            var nextStep = parseFloat( card + ((Math.abs( (x-halfDoc)/halfDoc ) * (max * 0.05)) + offset) ),
+              lastStep = vertLayer.lastStep,
+              diff = (nextStep+max) - (lastStep+max);
+              vertLayer.lastStep = nextStep;
+            sun.css({
+              'translateX': (diff>0?'+=':'-=') + Math.abs(diff/10) + 'px',
+              'rotateZ': (diff>0?'+=':'-=') + Math.abs(diff/25) + '',
+              'scale' : (diffY>0?'+=':'-=') + Math.abs(diffY/30000) + 'px'
             });
-          });
-
-          var y = e.pageY, cardY, offsetY, x = e.pageX, card, offset;
-
-          if ( y < halfDocY ) {
-            cardY = '-';
-            offsetY = maxY;
-          }
-          else {
-            cardY = '';
-            offsetY = maxY * -1;
-          }
-          if ( x < halfDoc ) {
-            card = '-';
-            offset = max;
-          }
-          else {
-            card = '';
-            offset = max * -1;
-          }
-          var nextStepY = parseFloat( cardY + ((Math.abs( (y-halfDocY)/halfDocY ) * (maxY)) + offsetY) ),
-          lastStepY = vertLayer.lastStepY,
-          diffY = (nextStepY+maxY) - (lastStepY+maxY);
-          vertLayer.lastStepY = nextStepY;
-          var nextStep = parseFloat( card + ((Math.abs( (x-halfDoc)/halfDoc ) * (max * 0.05)) + offset) ),
-            lastStep = vertLayer.lastStep,
-            diff = (nextStep+max) - (lastStep+max);
-            vertLayer.lastStep = nextStep;
-          sun.css({
-            'translateX': (diff>0?'+=':'-=') + Math.abs(diff/10) + 'px',
-            'rotateZ': (diff>0?'+=':'-=') + Math.abs(diff/25) + '',
-            'scale' : (diffY>0?'+=':'-=') + Math.abs(diffY/30000) + 'px'
-          });
-        }));
+          }));
+        }
       });
     </script>
   </head>
@@ -410,5 +419,41 @@
         </object>
       </div>
     </div>
+
+    <!--[if lt IE 9]>
+      <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+      <style>
+       .chromeFrameInstallDefaultStyle {
+         width: 800px;
+         position: fixed;
+         display: block;
+         top: 400px;
+         left: 200px;
+         z-index: 999;
+         margin-left: -20%;
+       }
+      </style>
+      <div id="prompt">
+        Due to the modern technologies used in this demo, you may have a better experience
+        <a href="http://browsehappy.com/">upgrading to a different browser</a> or
+        <a href="http://www.google.com/chromeframe/?redirect=true">installing Google Chrome Frame</a>, though
+        the page should be functional, just not pretty.
+      </div>
+      <script>
+       window.attachEvent("onload", function() {
+         CFInstall.check({
+           mode: "inline",
+           node: "prompt"
+         });
+       });
+      </script>
+    <![endif]-->
+
+    <script>
+      var _gaq=[['_setAccount','UA-21629194-1'],['_setDomainName', 'texasjavascript.com'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
   </body>
 </html>

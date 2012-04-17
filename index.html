@@ -88,6 +88,9 @@
       a {
         text-decoration: none;
       }
+      .content {
+        padding-bottom: 500px;
+      }
       .logo {
         width: 140px;
         height: 100px;
@@ -97,12 +100,10 @@
         background-color: rgba(255,103,0,1);
         -webkit-box-shadow: 0 0 20px rgba(255,100,0,.5), 0 0 120px rgba(255,175,0,1), inset 0 0 10px rgba(255,255,0,.5), inset 0 10px 20px rgba(255,255,255,.5), inset 0 -30px 40px rgba(255,255,0,.3);
         box-shadow: 0 0 20px rgba(255,100,0,.5), 0 0 120px rgba(255,175,0,1), inset 0 0 10px rgba(255,255,0,.5), inset 0 10px 20px rgba(255,255,255,.5), inset 0 -30px 40px rgba(255,255,0,.3);
-        position: fixed;
-        top: 0;
-        left: 50%;
         padding: 50px 30px;
-        margin: 40px 0 40px -100px;
+        margin: 40px auto;
         z-index: 2;
+        position: relative;
       }
       .info {
         position: absolute;
@@ -259,8 +260,8 @@
           top: auto;
         }
         .content {
-          /* position: relative; */
           z-index: 7;
+          padding-bottom: 120px;
         }
         .logo,
         #speakers,
@@ -280,7 +281,6 @@
           width: 100%;
         }
         #speakers {
-          padding-bottom: 40%;
           overflow: hidden;
         }
         #speakers li {

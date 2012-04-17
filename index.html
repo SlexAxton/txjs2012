@@ -375,136 +375,7 @@ false)}})(this);jQuery(function(a){"webkitAppearance"in document["documentE"+
   *b*.05+o)),t=n.lastStep,u=s+b-(t+b);n.lastStep=s,g.css({translateX:(u>0?"+=":"-=")+
   Math.abs(u/10)+"px",rotateZ:(u>0?"+=":"-=")+Math.abs(0)+"",scale:(r>0?"+=":"-=")
   +Math.abs(r/3e4)+"px"})})))  ); jQuery(window).trigger('resize');})
-
   // Uses Throttle/Debounce @cowboy | MIT //
-
-
-
-    /*jQuery(function($
-      ){if('webkitAppearance' in document.
-      documentElement.style){if ( !navigator.userAgent.match(/Chrome/i) ) {
-            // If it's webkit, but not chrome, it usually sucks at svg as <object>
-            $('object').each(function(){
-              var $this = $(this);
-              $this.replaceWith($('<img/>').attr({
-                src: $this.attr('data'),
-                width: '100%;'
-              }));
-            });
-          }
-        }
-
-        var max = 100,
-        maxY = 200,
-        layers = [
-          {
-            el : $('#fg'),
-            mult : 0.9
-          },
-          {
-            el : $('#power'),
-            mult : 0.45
-          },
-          {
-            el : $('#fg-mountains'),
-            mult : 0.3
-          },
-          {
-            el : $('#bg-mountains'),
-            mult : 0.15
-          }
-        ],
-        doc = $(document),
-        scene = $('#scene'),
-        sun = $('.logo'),
-        dbnc,
-        onWinResize = function () {
-          docSize = doc.width();
-          docSizeY = doc.height();
-          halfDoc = docSize/2;
-          halfDocY = docSizeY/2;
-          $( layers ).each(function ( i, layer ) {
-            layer.el.width( ("MozAppearance" in document.documentElement.style) ? docSize-(docSize/10) : docSize + (2*max) );
-            layer.el.css('left', '-' + max + 'px');
-          });
-        },
-        docSize,
-        docSizeY,
-        halfDoc,
-        halfDocY,
-        vertLayer = {
-          lastStep: -1*max,
-          lastStepY: -1*maxY
-        };
-
-        // Just doesn't perform well in IE :/
-        if ( !$('html.ie').length ) {
-          // Get some bleed
-          // Resize changes our math
-          $(window).resize($.throttle( 50, onWinResize));
-          onWinResize();
-
-          // Listen for the mouseMove
-          $('#cover').mousemove($.throttle(40, function(e){
-
-            $( layers ).each(function ( i, layer ) {
-              if ( typeof layer.lastStep == 'undefined' ) {
-                layer.lastStep = -1*max;
-              }
-              var x = e.pageX, card, offset;
-              if ( x < halfDoc ) {
-                card = '-';
-                offset = max;
-              }
-              else {
-                card = '';
-                offset = max * -1;
-              }
-
-              var nextStep = parseFloat( card + ((Math.abs( (x-halfDoc)/halfDoc ) * (max * layer.mult)) + offset) ),
-              lastStep = layer.lastStep,
-              diff = (nextStep+max) - (lastStep+max);
-              layer.lastStep = nextStep;
-
-              layer.el.css({
-                'translateX': (diff>0?'+=':'-=') + Math.abs(diff) + 'px'
-              });
-            });
-
-            var y = e.pageY, cardY, offsetY, x = e.pageX, card, offset;
-
-            if ( y < halfDocY ) {
-              cardY = '-';
-              offsetY = maxY;
-            }
-            else {
-              cardY = '';
-              offsetY = maxY * -1;
-            }
-            if ( x < halfDoc ) {
-              card = '-';
-              offset = max;
-            }
-            else {
-              card = '';
-              offset = max * -1;
-            }
-            var nextStepY = parseFloat( cardY + ((Math.abs( (y-halfDocY)/halfDocY ) * (maxY)) + offsetY) ),
-            lastStepY = vertLayer.lastStepY,
-            diffY = (nextStepY+maxY) - (lastStepY+maxY);
-            vertLayer.lastStepY = nextStepY;
-            var nextStep = parseFloat( card + ((Math.abs( (x-halfDoc)/halfDoc ) * (max * 0.05)) + offset) ),
-              lastStep = vertLayer.lastStep,
-              diff = (nextStep+max) - (lastStep+max);
-              vertLayer.lastStep = nextStep;
-            sun.css({
-              'translateX': (diff>0?'+=':'-=') + Math.abs(diff/10) + 'px',
-              'rotateZ': (diff>0?'+=':'-=') + Math.abs(diff/25) + '',
-              'scale' : (diffY>0?'+=':'-=') + Math.abs(diffY/30000) + 'px'
-            });
-          }));
-        }
-      });*/
     </script>
   </head>
   <body>
@@ -526,7 +397,7 @@ false)}})(this);jQuery(function(a){"webkitAppearance"in document["documentE"+
           <div class="country-name">U.S.A.</div>
         </div>
         <h2 id="date"><time datetime="2011-06-11">Thursday, June <span class="caps">14 2012</span></time></h2>
-        <a href="#" class="get-tix">Get Yer Tix</a>
+        <a href="http://txjs2012.eventbrite.com/" class="get-tix">Get Yer Tix</a>
       </div>
       <ul id="speakers">
           <li>

@@ -504,26 +504,41 @@ false)}})(this);jQuery(function(a){"webkitAppearance"/*...*/in document.
       <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
       <style>
        .chromeFrameInstallDefaultStyle {
-         width: 800px;
+       width: 800px;
          position: fixed;
          display: block;
-         top: 400px;
-         left: 200px;
+         top: 53%;
+         left: 50%;
          z-index: 999;
-         margin-left: -20%;
-       }
+         border: 5px solid #CCC;
+         padding: 10px;
+      }
+      #prompt {
+        position: fixed;
+        top: 0px;
+        width: 20%;
+        left: 40%;
+        border: 10px solid #762F2E;
+        background-color: #FFF;
+        padding: 10px;
+        z-index: 1000;
+      }
       </style>
       <div id="prompt">
-        Due to the modern technologies used in this demo, you may have a better experience
-        <a href="http://browsehappy.com/">upgrading to a different browser</a> or
-        <a href="http://www.google.com/chromeframe/?redirect=true">installing Google Chrome Frame</a>, though
-        the page should be functional, just not pretty.
+        Due to the modern technologies used on this site, you'll need to
+        <a href="http://browsehappy.com/">upgrade to a more modern browser</a> or
+        <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a>.
       </div>
+      <div id="prompt-fill"></div>
       <script>
+       // Dealing with position fixed here just isn't worth it.
+       if ( $('.lt-ie7').length ) {
+         window.location = "http://txjs2012.eventbrite.com/";
+       }
        window.attachEvent("onload", function() {
          CFInstall.check({
            mode: "inline",
-           node: "prompt"
+           node: "prompt-fill"
          });
        });
       </script>

@@ -106,11 +106,9 @@
       }
       .info {
         position: absolute;
-        left: 50%;
         top: 320px;
         text-align: center;
-        width: 60%;
-        margin-left: -30%;
+        width: 100%;
         z-index: 2;
       }
       .info h2,
@@ -270,6 +268,9 @@
           left: auto;
           margin-left: 0;
         }
+        .info {
+          margin-bottom: 160px;
+        }
         .logo {
           margin: 0 auto;
         }
@@ -282,9 +283,17 @@
           overflow: hidden;
         }
         #speakers li {
-          width: 46%;
-          padding: 1%;
-          margin: 1%;
+          width: 44%;
+          padding: 1% 1% 2%;
+          margin: 1.5% 1%;
+          float: none;
+          display: inline-block;
+        }
+        .info h2 {
+          font-size: 16px;
+        }
+        .info #location h2 {
+          font-size: 48px;
         }
       }
     </style>

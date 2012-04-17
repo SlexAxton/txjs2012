@@ -324,9 +324,9 @@
             diff = (nextStep+max) - (lastStep+max);
             vertLayer.lastStep = nextStep;
           sun.css({
-            'translateX': (diff>0?'+=':'-=') + Math.abs(diff) + 'px',
-            'translateY': (diffY>0?'+=':'-=') + Math.abs(diffY/40) + 'px',
-            'scale' : (diffY>0?'+=':'-=') + Math.abs(diffY/60000) + 'px'
+            'translateX': (diff>0?'+=':'-=') + Math.abs(diff/10) + 'px',
+            'rotateZ': (diff>0?'+=':'-=') + Math.abs(diff/30) + '',
+            'scale' : (diffY>0?'+=':'-=') + Math.abs(diffY/30000) + 'px'
           });
         }));
       });

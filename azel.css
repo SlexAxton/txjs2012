@@ -22,7 +22,7 @@ a {
 }
 
 #schedule {
-  max-width: 1200px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
@@ -37,7 +37,7 @@ a {
 #schedule th,
 #schedule td {
 	padding: 16px;
-	border: 1px solid rgba(255,255,255,.1);
+	border: 1px solid rgba(255,255,255,.2);
 }
 
 #schedule thead th {
@@ -108,14 +108,23 @@ a {
 	line-height: 20px;
   margin: 0 0 4px;
   color: #333;
-  letter-spacing: -1px;
+  font-family: 'txjsSemiboldItalic';
+  font-weight: normal;
 }
-
+.twttr {
+  font-family: 'txjsRegularItalic';
+  color: #566F72;
+}
+.twttr:hover {
+  text-decoration: underline;
+}
 #schedule h5 {
 	font-size: 14px;
 	line-height: 16px;
 	margin: 0 0 8px;
-	color: #555;
+	color: #666;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: normal;
 }	
 
 #schedule a {

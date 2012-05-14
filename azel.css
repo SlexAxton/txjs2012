@@ -16,7 +16,7 @@ a {
   margin: 0 5%;
   border-collapse: collapse;
   border-spacing: 0;
-  background-color: rgba(255,255,255,.3);
+  background-color: rgba(255,255,255,.4);
   text-shadow: 0 1px rgba(255,255,255,.5);
 }
 
@@ -42,7 +42,10 @@ a {
 
 #schedule th {
 	vertical-align:middle;
-	font-size: 12px;
+	font-size: 16px;
+	font-family: 'txjsSemiboldItalic';
+	color: #FFF;
+	text-shadow: 0 -1px rgba(0,0,0,.5);
 }
 
 #schedule .col-time {
@@ -64,7 +67,7 @@ a {
 	 }
 
 #schedule tbody tr:nth-child(even) {
-  background-color: rgba(255,255,255,.3);
+  background-color: rgba(255,255,255,.2);
 }
 
 #schedule th, #schedule td {
@@ -78,10 +81,11 @@ a {
 }
 
 #schedule h4 {
-	font-size: 16px;
-	line-height: 18px;
+	font-size: 18px;
+	line-height: 20px;
   margin: 0 0 4px;
   color: #333;
+  letter-spacing: -1px;
 }
 
 #schedule h5 {
@@ -93,6 +97,7 @@ a {
 
 #schedule a {
   font-size: 14px;
+  font-family: 'txjsSemiboldItalic';
 }
 
 #schedule .two-col {

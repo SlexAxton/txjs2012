@@ -2,8 +2,23 @@ body {
   font-family: 'txjsRegular', Helvetica, Arial, sans-serif;
 }
 
+#cover {
+  display: none;
+}
+
 a {
   color: #762F2F;
+}
+
+.code {
+  font-size: 40px;
+  margin: 0 0 24px;
+  font-family: 'txjsSemiboldItalic';
+  text-shadow: 2px 2px 0 #70969C,3px 3px 0 #FF6700;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #441F1D;
 }
 
 #schedule {
@@ -16,14 +31,17 @@ a {
   margin: 0 5%;
   border-collapse: collapse;
   border-spacing: 0;
-  background-color: rgba(255,255,255,.4);
   text-shadow: 0 1px rgba(255,255,255,.5);
 }
 
 #schedule th,
 #schedule td {
 	padding: 16px;
-	border: 1px solid rgba(255,255,255,.2);
+	border: 1px solid rgba(255,255,255,.1);
+}
+
+#schedule thead th {
+	border: 1px solid transparent;
 }
 
 #schedule td table td {
@@ -44,8 +62,9 @@ a {
 	vertical-align:middle;
 	font-size: 16px;
 	font-family: 'txjsSemiboldItalic';
-	color: #FFF;
+	color: #F7F4DB;
 	text-shadow: 0 -1px rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,.3);
 }
 
 #schedule .col-time {
@@ -67,7 +86,11 @@ a {
 	 }
 
 #schedule tbody tr:nth-child(even) {
-  background-color: rgba(255,255,255,.2);
+  background-color: rgba(255,255,255,.4);
+}
+
+#schedule tbody tr:nth-child(odd) {
+  background-color: rgba(255,255,255,.5);
 }
 
 #schedule th, #schedule td {

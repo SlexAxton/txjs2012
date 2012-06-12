@@ -139,7 +139,15 @@ a {
 }
 
 #schedule tbody tr.now {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
   transform: scale(1.2);
+  background-color: #FFF;
+  -webkit-box-shadow: 0 10px 10px rgba(0,0,0,.5);
+  -moz-box-shadow: 0 10px 10px rgba(0,0,0,.5);
+  -o-box-shadow: 0 10px 10px rgba(0,0,0,.5);
+  box-shadow: 0 10px 10px rgba(0,0,0,.5);
 }
 
 #schedule tbody tr td {

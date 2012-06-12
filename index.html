@@ -723,45 +723,47 @@ typeof c["lastStep"]=="u"+"ndefined"&&(c["las"
       });
 
 
-
+      /* auto-scrolling schedule behavior */
       jQuery(function($) {
         var times = [];
         $("#schedule th[scope='row']").each(function (key, val) {
           var start = val.innerHTML.split(/–/)[0].trim(),
-              date = new Date(),
+              time = new Date(),
               timeTextArr = start.split(':'),
               hour = parseInt(timeTextArr[0].trim(), 10),
               minute = parseInt(timeTextArr[1].trim(), 10);
 
-          hour = hour <= 7 ? hour + 12 : hour;
+          //eh
+          hour = hour >= 12 ? hour : hour + 12;
 
-          date.setHours( hour );
-          date.setMinutes( minute );
+          time.setHours( hour );
+          time.setMinutes( minute );
           times.push({
-            time: date,
+            time: time,
             el: val
           });
         });
 
         function setScrollByTime() {
           var now = new Date();
-          now = 1339424414488 + (60 * 60 * 5 * 1000)
+          //now = 1339424414488 + (60 * 60 * (6 / 2) * 1000)
           console.log('time is now', new Date(now))
-          var scrollToMe;
+          var scrollToMeIdx = 0;
           $.each(times, function(key, val) {
             if ( now > +val.time ) {
               scrollToMeIdx = key;
             } 
           });
 
-          var $now = $(times[scrollToMeIdx].el).parents('tr'),
-              $ondeck = $(times[scrollToMeIdx + 1].el).parents('tr');
-
           $('.now').removeClass('now');
           $('.ondeck').removeClass('ondeck');
 
+          if (times[scrollToMeIdx + 1]) {
+              $(times[scrollToMeIdx + 1].el).parents('tr').addClass('ondeck');
+          }
+
+          var $now = $(times[scrollToMeIdx].el).parents('tr');
           $now.addClass('now');
-          $ondeck.addClass('ondeck');
 
           $('html,body').animate({
             scrollTop: $now.offset().top
@@ -769,6 +771,9 @@ typeof c["lastStep"]=="u"+"ndefined"&&(c["las"
         }
 
         setScrollByTime();
+        window.setInterval(function() {
+          setScrollByTime();
+        }, 60 * 30 * 1000 /*check every 30 minutes*/);
 
 
 

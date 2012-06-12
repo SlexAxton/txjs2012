@@ -728,7 +728,7 @@ typeof c["lastStep"]=="u"+"ndefined"&&(c["las"
               minute = parseInt(timeTextArr[1].trim(), 10);
 
           //eh
-          hour = hour >= 12 ? hour : hour + 12;
+          hour = hour < 8 ? hour + 12 : hour;
 
           time.setHours( hour );
           time.setMinutes( minute );
@@ -740,7 +740,7 @@ typeof c["lastStep"]=="u"+"ndefined"&&(c["las"
 
         function setScrollByTime() {
           var now = new Date();
-          now = 1339477380288 + (60 * 60 * (15) * 1000)
+          //now = 1339477380288 + (60 * 60 * (15) * 1000)
           console.log('time is now', new Date(now))
           var scrollToMeIdx = 0;
           $.each(times, function(key, val) {

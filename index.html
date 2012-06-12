@@ -716,8 +716,8 @@ typeof c["lastStep"]=="u"+"ndefined"&&(c["las"
       /* auto-scrolling schedule behavior */
       jQuery(function($) {
 
-        if ( new Date().getDate() !== 14 ) {
-          //return
+        if ( new Date().getDate() !== 14 && window.location.search.indexOf('fake') < 0) {
+          return;
         }
         var times = [];
         $("#schedule th[scope='row']").each(function (key, val) {
@@ -769,7 +769,7 @@ typeof c["lastStep"]=="u"+"ndefined"&&(c["las"
         setScrollByTime();
         window.setInterval(function() {
           setScrollByTime();
-        }, 60 * 30 * 1000 /*check every 30 minutes*/);
+        }, 60 * 25 * 1000 /*check every 25 minutes*/);
 
 
 

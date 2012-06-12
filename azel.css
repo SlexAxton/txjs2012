@@ -36,54 +36,54 @@ a {
 
 #schedule th,
 #schedule td {
-        padding: 16px;
-        border: 1px solid rgba(255,255,255,.2);
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,.2);
 }
 
 #schedule thead th {
-        border: 1px solid transparent;
+  border: 1px solid transparent;
 }
 
 #schedule td table td {
-        padding: 0;
-        border: none;
+  padding: 0;
+  border: none;
 }
 
 #schedule td table td.row-stack-top {
-        border-bottom: 1px solid #D0C8BD;
-        padding-bottom: 10px;
+  border-bottom: 1px solid #D0C8BD;
+  padding-bottom: 10px;
 }
 
 #schedule td table td.row-stack-bot {
-        padding-top: 10px;
+  padding-top: 10px;
 }
 
 #schedule th {
-        vertical-align:middle;
-        font-size: 16px;
-        font-family: 'txjsSemiboldItalic';
-        color: #F7F4DB;
-        text-shadow: 0 -1px rgba(0,0,0,.5);
-        background-color: rgba(0,0,0,.3);
+  vertical-align:middle;
+  font-size: 16px;
+  font-family: 'txjsSemiboldItalic';
+  color: #F7F4DB;
+  text-shadow: 0 -1px rgba(0,0,0,.5);
+  background-color: rgba(0,0,0,.3);
 }
 
 #schedule .col-time {
-        width: 10%;
+  width: 10%;
 }
 
 #schedule .col-track {
-        width: 45%;
+  width: 45%;
 }
 
 #schedule thead th {
-        color: #F7F4DB;
-        text-transform: uppercase;
+  color: #F7F4DB;
+  text-transform: uppercase;
 }
         
 #schedule tbody td:hover:not(.two-col),
 #schedule tbody td.hover {
-        background-color: #FFF;
-         }
+  background-color: #FFF;
+}
 
 #schedule tbody tr:nth-child(even) {
   background-color: rgba(255,255,255,.4);
@@ -93,19 +93,13 @@ a {
   background-color: rgba(255,255,255,.5);
 }
 
-#schedule th, #schedule td {
-  -moz-transition: all 0.15s ease-out;
-  -o-transition: all 0.15s ease-out;
-  -webkit-transition: all 0.15s ease-out;
-}
-
 #schedule .inactive {
   background-color:#ccc;
 }
 
 #schedule h4 {
-        font-size: 18px;
-        line-height: 20px;
+  font-size: 18px;
+  line-height: 20px;
   margin: 0 0 4px;
   color: #333;
   font-family: 'txjsSemiboldItalic';
@@ -119,12 +113,12 @@ a {
   text-decoration: underline;
 }
 #schedule h5 {
-        font-size: 14px;
-        line-height: 16px;
-        margin: 0 0 8px;
-        color: #666;
-        font-family: Helvetica, Arial, sans-serif;
-        font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  margin: 0 0 8px;
+  color: #666;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: normal;
 }       
 
 #schedule a {
@@ -133,11 +127,11 @@ a {
 }
 
 #schedule .two-col {
-        text-align:center;
+  text-align: center;
 }
 
 #schedule .two-col-row {
-        cursor: default !important;
+  cursor: default !important;
 }
 
 #schedule img {
@@ -145,7 +139,8 @@ a {
 }
 
 #schedule tbody tr td {
-        cursor:pointer;
+  cursor:pointer;
+  position: relative;
 }
 
 #schedule tbody tr td.row-stack-top {
@@ -154,7 +149,29 @@ a {
 }
 
 #schedule td aside {
-        display:none;
+  position: absolute;
+  background-color: #FFF;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 16px 0 0 -16px;
+  z-index: 99999;
+  background-color: #365052;
+  text-shadow: none;
+  color: #CFDCDD;
+  height: 0;
+  -webkit-transition: all linear 0.15s;
+  -moz-transition: all linear 0.15s;
+  -o-transition: all linear 0.15s;
+  transition: all linear 0.15s;
+  overflow: hidden;
+  padding: 0 16px;
+}
+
+#schedule td:hover aside {
+  min-height: 100px;
+  height: auto;
+  padding: 16px;
 }
 
 .schedinfo {

@@ -712,19 +712,14 @@ typeof c["lastStep"]=="u"+"ndefined"&&(c["las"
       else if (navigator.userAgent.match(/ipad/i)) {
         $(function(){$('html').addClass('omgip');});
       }
-      jQuery(function($){
-        var btn = $('.get-tix');
-        $('.get-tix-click').hover(function(){
-          btn.toggleClass('hover');
-        }).click(function(){
-          btn.addClass('active');
-          setTimeout(function(){ btn.removeClass('active'); }, 100);
-        });;
-      });
 
 
       /* auto-scrolling schedule behavior */
       jQuery(function($) {
+
+        if ( new Date().getDate() !== 14 ) {
+          return
+        }
         var times = [];
         $("#schedule th[scope='row']").each(function (key, val) {
           var start = val.innerHTML.split(/–/)[0].trim(),

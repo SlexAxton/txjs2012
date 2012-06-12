@@ -140,10 +140,6 @@ a {
         cursor: default !important;
 }
 
-#schedule p {
-  margin:0 0 5px 0;
-}
-
 #schedule img {
   margin:0 0 -10px 0;
 }
@@ -162,23 +158,40 @@ a {
 }
 
 .schedinfo {
-  width: 960px;
+  width: 940px;
   margin: 30px auto;
   text-align: left;
+  -moz-column-count: 3;
+	-moz-column-gap: 30px;
+	-webkit-column-count: 3;
+	-webkit-column-gap: 30px;
+	column-count: 3;
+	column-gap: 30px;
 }
 .content {
   padding-bottom: 10px;
 }
 
 .schedinfo h3 {
-  font-size: 32px;
-  line-height: 22px;
-  margin: 30px 0 10px;
+  font-size: 24px;
+  line-height: 26px;
+  margin: 0 0 16px;
   color: #EFEFEF;
   font-family: 'txjsSemiboldItalic';
   font-weight: normal;
-  text-shadow: 2px 2px 0 #70969C,3px 3px 0 #441F1D;
+  text-shadow: 1px 1px 0 #4A686C;
+}
+.schedinfo small {
+  margin-bottom: 4px;
+  display: block;
+  font-family: 'txjsSemiboldItalic';
+  text-transform: uppercase;
+  font-size: 16px; 
 }
 .schedinfo p {
-  padding: 10px 0 0 0;
+  margin: 0 0 20px;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 16px;
 }

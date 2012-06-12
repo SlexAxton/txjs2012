@@ -757,11 +757,13 @@ typeof c["lastStep"]=="u"+"ndefined"&&(c["las"
           }
 
           var $now = $(times[scrollToMeIdx].el).parents('tr');
-          $now.addClass('now');
 
           $('html,body').animate({
             scrollTop: $now.offset().top
-          }, 2000);
+          }, 2000, function() {
+            $now.addClass('now');
+
+          });
         }
 
         setScrollByTime();

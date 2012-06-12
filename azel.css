@@ -138,6 +138,10 @@ a {
   margin:0 0 -10px 0;
 }
 
+#schedule tbody tr.now {
+  transform: scale(1.2);
+}
+
 #schedule tbody tr td {
   cursor:pointer;
   position: relative;

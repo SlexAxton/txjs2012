@@ -255,3 +255,27 @@ a {
   font-size: 13px;
   line-height: 16px;
 }
+
+@media only screen and (max-width: 480px) {
+
+    #schedule .schedinfo {
+      -moz-column-count: 0;
+      -moz-column-gap: 0;
+      -webkit-column-count: 0;
+      -webkit-column-gap: 0;
+      width: 85%;
+  } 
+
+  #schedule table tr.now {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+
+  #schedule table tr.now aside {
+    display: none;
+  }
+
+}
+
